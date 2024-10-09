@@ -1,3 +1,6 @@
 env/
 .vscode/
-
+.replit
+index.html
+.xlsx
+.idea
