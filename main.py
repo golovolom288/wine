@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime
 
 import pandas
-
+import argparse
 from collections import defaultdict
 
 
@@ -41,9 +41,15 @@ def render_template(data):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description='Получает информацию о винах и добавляет её на сайт'
+    )
+    parser.add_argument('--file_name', help='Имя файла с информацией о винах')
+    file_name = parser.parse_args()
+    print(file_name.file_name)
     data_to_render = {
         "age": get_wine_age(1920),
-        "wines": load_excel_data("wine3.xlsx")
+        "wines": load_excel_data(file_name.file_name)
     }
     rendered_page = render_template(
         data_to_render
