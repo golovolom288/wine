@@ -113,23 +113,23 @@
           </div>
         </div>
         <div class="row">
-          {%for wine_category,wine_info in wines.items()%}
+          {%for wine_category,wines in wines.items()%}
             <div class="col-12 section-title text-center mb-5">
               <h2 class="d-block">{{wine_category}}</h2>
             </div>
-            {%for info in wine_info%}
+            {%for wine in wines%}
               <div class="col-4">
                 <div class="card">
-                  <img src='images/{{info.Картинка}}' class="card-img-top" alt="...">
-                  {%if info.Акция%}
+                  <img src='images/{{wine.Картинка}}' class="card-img-top" alt="...">
+                  {%if wine.Акция%}
                     <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
                   {%endif%}
                   <div class="card-body text-center">
-                     <h5 class="card-title" style="color: black;">{{info.Название}}</h5>
-                     {%if info.Сорт%}
-                      <p class="card-text">Сорт: {{info.Сорт}}</p>
+                     <h5 class="card-title" style="color: black;">{{wine.Название}}</h5>
+                     {%if wine.Сорт%}
+                      <p class="card-text">Сорт: {{wine.Сорт}}</p>
                      {%endif%}
-                     <p class="card-text"><small class="text-muted">Стоимость: {{info.Цена}}р.</small></p>
+                     <p class="card-text"><small class="text-muted">Стоимость: {{wine.Цена}}р.</small></p>
                   </div>
                 </div>
               </div>
