@@ -41,6 +41,7 @@ def render_template(data):
 
 
 def main():
+    year_of_creation = 1920
     parser = argparse.ArgumentParser(
         description='Получает информацию о винах и добавляет её на сайт'
     )
@@ -48,7 +49,7 @@ def main():
     file_name = parser.parse_args()
     print(file_name.file_name)
     data_to_render = {
-        "age": get_wine_age(1920),
+        "age": get_wine_age(year_of_creation),
         "wines": load_excel_data(file_name.file_name)
     }
     rendered_page = render_template(
